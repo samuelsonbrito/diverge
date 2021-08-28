@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background: #f8f8f8;
+    color: #29192e;
+  }
+  
+  body, input, button, textarea {
+    font: 400 16px "Roboto", sans-serif;
+  }
+
+  .content {
+    padding-left: 54vh;
+    padding-right: 54vh;
+    padding-top: 14vh;
+  }
+
+  .divLinha {
+    background: rgb(74, 74, 74);
+    margin-right: 5px;
+    border-radius: 5px;
+  }
