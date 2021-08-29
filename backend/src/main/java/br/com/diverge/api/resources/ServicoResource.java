@@ -25,40 +25,40 @@ import io.swagger.annotations.ApiOperation;
 @CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false")  
 @RestController
 @RequestMapping(value = "/api")
-@Api(value="API REST Tasks")
+@Api(value="API REST Servico")
 public class ServicoResource {
 	
 	@Autowired
 	ServicoRepository repository;
 	
-	@ApiOperation(value="Retorna lista de tasks")
-	@GetMapping("tasks")
+	@ApiOperation(value="Retorna lista de servico")
+	@GetMapping("servico")
 	public List<Servico> findAll(){
 		return repository.findAll();
 	}
 	
 	@ApiOperation(value="Retorna task única")
-	@GetMapping("task/{id}")
+	@GetMapping("servico/{id}")
 	public Servico findById(@PathVariable(value="id") long id) {
 		return repository.findById(id);
 	}
 	
-	@ApiOperation(value="Salva task")
-	@PostMapping("task")
+	@ApiOperation(value="Salva servico")
+	@PostMapping("servico")
 	@ResponseStatus(HttpStatus.CREATED)
 	public Servico save(@RequestBody @Valid Servico contact) {
 		return repository.save(contact);
 	}
 	
-	@ApiOperation(value="Deleta task")
-	@DeleteMapping("task/{id}")
+	@ApiOperation(value="Deleta servico")
+	@DeleteMapping("servico/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void dalete(@PathVariable(value="id") long id) {
 		repository.deleteById(id);
 	}
 	
-	@ApiOperation(value="Atualiza task")
-	@PutMapping("task")
+	@ApiOperation(value="Atualiza servico")
+	@PutMapping("servico")
 	public Servico update(@RequestBody @Valid Servico contact) {
 		return repository.save(contact);
 	}

@@ -25,40 +25,40 @@ import io.swagger.annotations.ApiOperation;
 @CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false")  
 @RestController
 @RequestMapping(value = "/api")
-@Api(value="API REST Tasks")
+@Api(value="API REST NotasFiscais")
 public class NotasFiscaisResource {
 	
 	@Autowired
 	NotasFiscaisRepository repository;
 	
-	@ApiOperation(value="Retorna lista de tasks")
+	@ApiOperation(value="Retorna lista de NotasFiscais")
 	@GetMapping("tasks")
 	public List<NotasFiscais> findAll(){
 		return repository.findAll();
 	}
 	
 	@ApiOperation(value="Retorna task única")
-	@GetMapping("task/{id}")
+	@GetMapping("notasfiscais/{id}")
 	public NotasFiscais findById(@PathVariable(value="id") long id) {
 		return repository.findById(id);
 	}
 	
-	@ApiOperation(value="Salva task")
-	@PostMapping("task")
+	@ApiOperation(value="Salva notasfiscais")
+	@PostMapping("notasfiscais")
 	@ResponseStatus(HttpStatus.CREATED)
 	public NotasFiscais save(@RequestBody @Valid NotasFiscais contact) {
 		return repository.save(contact);
 	}
 	
-	@ApiOperation(value="Deleta task")
-	@DeleteMapping("task/{id}")
+	@ApiOperation(value="Deleta notasfiscais")
+	@DeleteMapping("notasfiscais/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void dalete(@PathVariable(value="id") long id) {
 		repository.deleteById(id);
 	}
 	
-	@ApiOperation(value="Atualiza task")
-	@PutMapping("task")
+	@ApiOperation(value="Atualiza notasfiscais")
+	@PutMapping("notasfiscais")
 	public NotasFiscais update(@RequestBody @Valid NotasFiscais contact) {
 		return repository.save(contact);
 	}

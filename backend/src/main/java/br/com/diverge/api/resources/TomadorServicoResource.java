@@ -25,40 +25,40 @@ import io.swagger.annotations.ApiOperation;
 @CrossOrigin(origins= {"*"}, maxAge = 4800, allowCredentials = "false")  
 @RestController
 @RequestMapping(value = "/api")
-@Api(value="API REST Tasks")
+@Api(value="API REST TomadorServico")
 public class TomadorServicoResource {
 	
 	@Autowired
 	TomadorServicoRepository repository;
 	
-	@ApiOperation(value="Retorna lista de tasks")
+	@ApiOperation(value="Retorna lista de TomadorServico")
 	@GetMapping("tasks")
 	public List<TomadorServico> findAll(){
 		return repository.findAll();
 	}
 	
-	@ApiOperation(value="Retorna task única")
-	@GetMapping("task/{id}")
+	@ApiOperation(value="Retorna tomadorservico única")
+	@GetMapping("tomadorservico/{id}")
 	public TomadorServico findById(@PathVariable(value="id") long id) {
 		return repository.findById(id);
 	}
 	
-	@ApiOperation(value="Salva task")
-	@PostMapping("task")
+	@ApiOperation(value="Salva tomadorservico")
+	@PostMapping("tomadorservico")
 	@ResponseStatus(HttpStatus.CREATED)
 	public TomadorServico save(@RequestBody @Valid TomadorServico contact) {
 		return repository.save(contact);
 	}
 	
-	@ApiOperation(value="Deleta task")
-	@DeleteMapping("task/{id}")
+	@ApiOperation(value="Deleta tomadorservico")
+	@DeleteMapping("servico/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void dalete(@PathVariable(value="id") long id) {
 		repository.deleteById(id);
 	}
 	
-	@ApiOperation(value="Atualiza task")
-	@PutMapping("task")
+	@ApiOperation(value="Atualiza tomadorservico")
+	@PutMapping("tomadorservico")
 	public TomadorServico update(@RequestBody @Valid TomadorServico contact) {
 		return repository.save(contact);
 	}
