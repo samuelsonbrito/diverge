@@ -3,6 +3,7 @@ import { Steps } from 'antd';
 import { Form, Input, Button, Checkbox } from 'antd';
 import '../styles/container.scss'
 import { Link } from "react-router-dom";
+import { Header } from "../components/Header";
 
 
 export function FormCnpj() {
@@ -11,6 +12,7 @@ export function FormCnpj() {
 
         return (
             <>
+            <Header />
             <div className="container">
             <Steps current={0} style={{marginTop: '10px', marginBottom: '100px'}}>
                     <Step title="Tomador de Serviço" />
