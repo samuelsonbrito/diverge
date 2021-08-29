@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.dkpro.similarity.algorithms.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -61,6 +62,24 @@ public class NotasFiscaisResource {
 	@PutMapping("notasfiscais")
 	public NotasFiscais update(@RequestBody @Valid NotasFiscais contact) {
 		return repository.save(contact);
+	}
+	
+	@ApiOperation(value="Atualiza notasfiscais")
+	@PostMapping("notasfiscais/diverge")
+	public NotasFiscais diverge(@RequestBody @Valid NotasFiscais nota) {
+		
+		TextSimilarityMeasure measure = null; 
+
+		try {
+			
+			double score = measure.getSimilarity(nota.getServico().split(" "), nota.getDescricao().split(" "));
+			
+		} catch (SimilarityException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return repository.save(nota);
 	}
 	
 }

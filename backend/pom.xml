@@ -62,6 +62,17 @@
 		  <version>2.3.0</version>
 		</dependency>
 	</dependencies>
+	
+	<repositories>
+		<repository>
+		<id>ukp-oss-releases</id>
+		<url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-releases</url>
+		</repository>
+		<repository>
+		<id>ukp-oss-snapshots</id>
+		<url>http://zoidberg.ukp.informatik.tu-darmstadt.de/artifactory/public-snapshots</url>
+		</repository>
+	</repositories>
 
 	<build>
 		<plugins>
