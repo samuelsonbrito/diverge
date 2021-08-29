@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
-import br.com.diverge.api.models.Task;
-import br.com.diverge.api.repository.TaskRepository;
+import br.com.diverge.api.models.Servico;
+import br.com.diverge.api.repository.ServicoRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -29,38 +29,38 @@ import io.swagger.annotations.ApiOperation;
 public class ServicoResource {
 	
 	@Autowired
-	TaskRepository taskRepository;
+	ServicoRepository repository;
 	
 	@ApiOperation(value="Retorna lista de tasks")
 	@GetMapping("tasks")
-	public List<Task> findAll(){
-		return taskRepository.findAll();
+	public List<Servico> findAll(){
+		return repository.findAll();
 	}
 	
 	@ApiOperation(value="Retorna task única")
 	@GetMapping("task/{id}")
-	public Task findById(@PathVariable(value="id") long id) {
-		return taskRepository.findById(id);
+	public Servico findById(@PathVariable(value="id") long id) {
+		return repository.findById(id);
 	}
 	
 	@ApiOperation(value="Salva task")
 	@PostMapping("task")
 	@ResponseStatus(HttpStatus.CREATED)
-	public Task save(@RequestBody @Valid Task contact) {
-		return taskRepository.save(contact);
+	public Servico save(@RequestBody @Valid Servico contact) {
+		return repository.save(contact);
 	}
 	
 	@ApiOperation(value="Deleta task")
 	@DeleteMapping("task/{id}")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void dalete(@PathVariable(value="id") long id) {
-		taskRepository.deleteById(id);
+		repository.deleteById(id);
 	}
 	
 	@ApiOperation(value="Atualiza task")
 	@PutMapping("task")
-	public Task update(@RequestBody @Valid Task contact) {
-		return taskRepository.save(contact);
+	public Servico update(@RequestBody @Valid Servico contact) {
+		return repository.save(contact);
 	}
 	
 }

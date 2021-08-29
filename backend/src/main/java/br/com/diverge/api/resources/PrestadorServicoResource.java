@@ -18,9 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.http.HttpStatus;
 
 import br.com.diverge.api.models.PrestadorServico;
-import br.com.diverge.api.models.Task;
 import br.com.diverge.api.repository.PrestadorServicoRepository;
-import br.com.diverge.api.repository.TaskRepository;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
@@ -48,7 +46,7 @@ public class PrestadorServicoResource {
 	@ApiOperation(value="Salva task")
 	@PostMapping("task")
 	@ResponseStatus(HttpStatus.CREATED)
-	public PrestadorServico save(@RequestBody @Valid Task contact) {
+	public PrestadorServico save(@RequestBody @Valid PrestadorServico contact) {
 		return repository.save(contact);
 	}
 	
@@ -61,7 +59,7 @@ public class PrestadorServicoResource {
 	
 	@ApiOperation(value="Atualiza task")
 	@PutMapping("task")
-	public PrestadorServico update(@RequestBody @Valid Task contact) {
+	public PrestadorServico update(@RequestBody @Valid PrestadorServico contact) {
 		return repository.save(contact);
 	}
 	
